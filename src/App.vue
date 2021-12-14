@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <modal v-slot="{ isShowed }" name="test-modal">
+      <HelloWorld
+        v-if="isShowed"
+        msg="Welcome to Your Vue.js + TypeScript App"
+      />
+    </modal>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "./components/HelloWorld.vue";
 
 @Component({
   components: {
     HelloWorld,
+  },
+  mounted() {
+    console.log(this);
   },
 })
 export default class App extends Vue {}
