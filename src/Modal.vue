@@ -6,33 +6,10 @@
 
 <script lang="ts">
 import Vue from "vue";
+import ModalViewer from "./ModalViewer";
 
 export default Vue.extend({
+  mixins: [ModalViewer.mixin],
   name: "Modal",
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      isShowed: false,
-    };
-  },
-  created() {
-    this.$modalviewer.register(this);
-  },
-  beforeDestroy() {
-    this.$modalviewer.unregister(this);
-  },
-  methods: {
-    show() {
-      this.isShowed = true;
-    },
-    hide() {
-      this.isShowed = false;
-    },
-  },
 });
 </script>
