@@ -3,7 +3,7 @@
   "description": "",
   "version": "0.1.3",
   "main": "dist/vue-modal-viewer.common.js",
-  "types": "dts/ModalViewer.d.ts",
+  "types": "dts/index.d.ts",
   "scripts": {
     "test": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib ./src/ModalViewer.ts && tsc --emitDeclarationOnly"
