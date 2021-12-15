@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
+    "declaration": true,
+    "declarationDir": "./dts",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -12,9 +14,6 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
     "paths": {
       "@/*": [
         "src/*"

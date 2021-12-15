@@ -1,4 +1,4 @@
-# vue-test2-plugin
+# vue-modal-viewer
 
 ## Project setup
 ```

@@ -1,0 +1,7 @@
+public
+src
+
+dts/main.d.ts
+
+dist/vue-modal-viewer.umd.*
+dist/demo.html

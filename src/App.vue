@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img alt="Vue logo" src="./assets/logo.png" @click="toggle" />
     <modal v-slot="{ isShowed }" name="test-modal">
       <HelloWorld
         v-if="isShowed"
@@ -20,6 +20,17 @@ import HelloWorld from "./components/HelloWorld.vue";
   },
   mounted() {
     console.log(this);
+  },
+  data: () => ({ showed: false }),
+  methods: {
+    toggle() {
+      //@ts-ignore
+      this.showed == false
+        ? this.$modalviewer.show("test-modal")
+        : this.$modalviewer.hide("test-modal");
+      //@ts-ignore
+      this.showed = !this.showed;
+    },
   },
 })
 export default class App extends Vue {}

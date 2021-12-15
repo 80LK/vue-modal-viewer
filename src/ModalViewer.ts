@@ -2,12 +2,12 @@ import Vue from "vue";
 import ModalVue from "./Modal.vue";
 
 declare module 'vue/types/vue' {
-	interface Vue {
+	export interface Vue {
 		$modalviewer: ModalViewer
 	}
 }
 
-type Modal = {
+interface Modal extends Vue {
 	name: string;
 	show(): void;
 	hide(): void;
