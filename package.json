@@ -1,9 +1,16 @@
 {
   "name": "vue-modal-viewer",
-  "description": "",
+  "description": "Show and hide your content in Vue",
   "version": "0.1.5",
   "main": "dist/vue-modal-viewer.common.js",
   "types": "dts/index.d.ts",
+  "keywords": [
+    "vue",
+    "modal",
+    "show",
+    "hide",
+    "modalviewer"
+  ],
   "scripts": {
     "test": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib ./src/index.ts && tsc --emitDeclarationOnly"

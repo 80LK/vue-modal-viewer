@@ -1,4 +1,5 @@
 # vue-modal-viewer
+Show and hide your content in Vue
 
 ## Usage
 
