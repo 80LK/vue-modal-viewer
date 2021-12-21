@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" @click="toggle" />
-    <modal v-slot="{ isShowed }" name="test-modal">
+    <modal v-slot="{ isShowed }" name="test-modal" v-model="showed">
       <HelloWorld
         v-if="isShowed"
         msg="Welcome to Your Vue.js + TypeScript App"
@@ -25,11 +25,13 @@ import HelloWorld from "./components/HelloWorld.vue";
   methods: {
     toggle() {
       //@ts-ignore
-      this.showed == false
-        ? this.$modalviewer.show("test-modal")
-        : this.$modalviewer.hide("test-modal");
-      //@ts-ignore
       this.showed = !this.showed;
+      // //@ts-ignore
+      // this.showed == false
+      //   ? this.$modalviewer.show("test-modal")
+      //   : this.$modalviewer.hide("test-modal");
+      // //@ts-ignore
+      // this.showed = !this.showed;
     },
   },
 })

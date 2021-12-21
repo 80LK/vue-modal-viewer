@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { ComponentOptions } from "vue/types/options";
+import { ThisTypedComponentOptionsWithRecordProps } from "vue/types/options";
 
 declare module 'vue/types/vue' {
 	export interface Vue {
@@ -15,30 +15,49 @@ interface Modal extends Vue {
 }
 
 class ModalViewer {
-	public static readonly mixin: ComponentOptions<Vue> = {
+	public static readonly mixin: ThisTypedComponentOptionsWithRecordProps<Modal, { showed: boolean }, { show(): void, hide(): void }, { isShowed: boolean }, { name: string, value: boolean }> = {
 		props: {
 			name: {
 				type: String,
 				required: true,
 			},
+			value: {
+				type: Boolean,
+				default: false
+			}
 		},
 		data() {
 			return {
-				isShowed: false,
+				showed: false,
 			};
 		},
+		watch: {
+			value(value: boolean) {
+				this.showed = value;
+			}
+		},
+		computed: {
+			isShowed: {
+				get(): boolean {
+					return this.showed;
+				},
+				set(value: boolean): void {
+					this.$emit("input", this.showed = value);
+				}
+			}
+		},
 		created() {
-			(<Modal>this).$modalviewer.register((<Modal>this));
+			this.$modalviewer.register(this);
 		},
 		beforeDestroy() {
-			(<Modal>this).$modalviewer.unregister((<Modal>this));
+			this.$modalviewer.unregister(this);
 		},
 		methods: {
 			show() {
-				(<Modal>this).isShowed = true;
+				this.isShowed = true;
 			},
 			hide() {
-				(<Modal>this).isShowed = false;
+				this.isShowed = false;
 			},
 		},
 	};
