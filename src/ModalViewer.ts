@@ -15,7 +15,7 @@ interface Modal extends Vue {
 }
 
 class ModalViewer {
-	public static readonly mixin: ThisTypedComponentOptionsWithRecordProps<Modal, { showed: boolean }, { show(): void, hide(): void }, { isShowed: boolean }, { name: string, value: boolean }> = {
+	public static readonly mixin: ThisTypedComponentOptionsWithRecordProps<Vue, { showed: boolean }, { show(): void, hide(): void }, { isShowed: boolean }, { name: string, value: boolean }> = {
 		props: {
 			name: {
 				type: String,
@@ -65,6 +65,7 @@ class ModalViewer {
 	private modals: { [key: string]: Modal } = {};
 	public register(modal: Modal) {
 		const modalName = modal.name;
+		if (!modalName) throw new ReferenceError("Modal without name");
 
 		if (this.modals.hasOwnProperty(modalName))
 			console.error(`Modal "${modalName}" alredy register and rewriten!`);
@@ -73,6 +74,7 @@ class ModalViewer {
 	}
 	public unregister(modal: Modal) {
 		const modalName = modal.name;
+		if (!modalName) throw new ReferenceError("Modal without name");
 		if (this.modals.hasOwnProperty(modalName)) {
 			const regModal = this.modals[modalName];
 			if (regModal && modal == regModal) {
