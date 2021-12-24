@@ -15,7 +15,7 @@ interface Modal extends Vue {
 }
 
 class ModalViewer {
-	public static readonly mixin: ThisTypedComponentOptionsWithRecordProps<Vue, { showed: boolean }, { show(): void, hide(): void }, { isShowed: boolean }, { name: string, value: boolean }> = {
+	public static readonly mixin = Vue.extend({
 		props: {
 			name: {
 				type: String,
@@ -60,7 +60,7 @@ class ModalViewer {
 				this.isShowed = false;
 			},
 		},
-	};
+	});
 
 	private modals: { [key: string]: Modal } = {};
 	public register(modal: Modal) {
