@@ -1,7 +1,7 @@
 {
   "name": "vue-modal-viewer",
   "description": "Show and hide your content in Vue",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "dist/vue-modal-viewer.common.js",
   "types": "dts/index.d.ts",
   "keywords": [
